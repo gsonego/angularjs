@@ -16,7 +16,8 @@ $RECYCLE.BIN/
 .DS_Store
 
 #################
-## Node Modules
+## Diversos
 #################
 
 node_modules/
+.vscode/
