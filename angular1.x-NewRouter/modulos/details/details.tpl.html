@@ -1,0 +1,8 @@
+<div class="user-details" ng-if="details.id">
+    <h2>User Details  ({{details.name}})</h2>
+
+  <p>Id: {{details.id}}</p>
+  <p>Username: {{details.username}}</p>
+  <p>Roles: {{details.roles.join(', ')}}</p>
+  <a ng-link="details({})">Close</a>
+</div>

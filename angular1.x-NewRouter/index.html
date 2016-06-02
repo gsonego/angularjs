@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AngularJS Plunker</title>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
+
+  <!-- Bootstrap 3 -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+
+  <!-- Angular -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="router.es5.js"></script>
+  
+  <!-- App -->
+  <!-- order is irrelevant after app.js -->
+  <script src="app.js"></script>
+  <script src="AppController.js"></script>
+  <script src="HeaderController.js"></script>
+
+  <!-- home -->
+  <script src="modulos/home/home.js"></script>
+  <script src="modulos/home/HomeController.js"></script>
+
+  <!-- users -->
+  <!-- now dependencies before users -->
+  <!-- details -->
+  <script src="modulos/details/details.js"></script>
+  <script src="modulos/details/DetailsController.js"></script>
+  
+  <script src="modulos/users/users.js"></script>
+  <script src="modulos/users/UsersController.js"></script>
+  <script src="modulos/users/UsersService.js"></script>
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body ng-controller="AppController as app">
+    
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ng-link="home">Logo</a>
+      </div>
+        
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="HeaderController as header">
+        <ul class="nav navbar-nav">
+          <li ng-class="{ active: header.isActive('/home')}"><a ng-link="home">Home</a>
+          </li>
+          <li ng-class="{ active: header.isActive('/users')}"><a ng-link="details({})">Users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+      
+  </nav>
+      
+  <div ng-viewport class="container-fluid slide"></div>
+</body>
+
+</html>
