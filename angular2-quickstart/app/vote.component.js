@@ -11,41 +11,46 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var FavoriteComponent;
+    var VoteComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            FavoriteComponent = (function () {
-                function FavoriteComponent() {
-                    this.isFavorite = false;
-                    this.change = new core_1.EventEmitter();
+            VoteComponent = (function () {
+                function VoteComponent() {
+                    this.myVote = 0;
+                    this.totalVotes = 0;
                 }
-                FavoriteComponent.prototype.onClick = function () {
-                    this.isFavorite = !this.isFavorite;
-                    this.change.emit({ newValue: this.isFavorite });
+                VoteComponent.prototype.voteUp = function () {
+                    this.myVote = this.myVote == 0 ? 1 : 0;
+                    this.totalVotes += this.myVote == 1 ? 1 : -1;
+                };
+                VoteComponent.prototype.voteDown = function () {
+                    this.myVote = this.myVote == 0 ? -1 : 0;
+                    this.totalVotes -= this.myVote == -1 ? 1 : -1;
                 };
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', Boolean)
-                ], FavoriteComponent.prototype, "isFavorite", void 0);
+                    __metadata('design:type', Number)
+                ], VoteComponent.prototype, "myVote", void 0);
                 __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', Object)
-                ], FavoriteComponent.prototype, "change", void 0);
-                FavoriteComponent = __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Number)
+                ], VoteComponent.prototype, "totalVotes", void 0);
+                VoteComponent = __decorate([
                     core_1.Component({
-                        selector: 'favorite',
-                        templateUrl: 'app/favorite.template.html'
+                        selector: 'voter',
+                        templateUrl: 'app/vote.template.html',
+                        styles: ["\n\t\t.glyphicon  {\n\t\t\tcolor: #ccc;\n\t\t\tcursor: pointer;\n\t\t}\n\t\t\n\t\t.voted {\n\t\t\tcolor: orange;\n\t\t}\n\t"]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], FavoriteComponent);
-                return FavoriteComponent;
+                ], VoteComponent);
+                return VoteComponent;
             }());
-            exports_1("FavoriteComponent", FavoriteComponent);
+            exports_1("VoteComponent", VoteComponent);
         }
     }
 });
-//# sourceMappingURL=favorite.component.js.map
+//# sourceMappingURL=vote.component.js.map

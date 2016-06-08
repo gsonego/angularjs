@@ -1,7 +1,6 @@
 import {Component} from 'angular2/core';
 import {CourseService} from './course.service';
 import {AutoGrowDirective} from './auto-grow.directive';
-import {FavoriteComponent} from './favorite.component';
 
 @Component({
 	
@@ -17,7 +16,6 @@ import {FavoriteComponent} from './favorite.component';
 				<span (click)="onSpanClick()">
 					<button (click)="onClick($event)">Save</button>
 				</span>
-				<favorite></favorite>
 				<div [style.backgroundColor]="selected ? 'yellow' : 'red'">
 					<ul>
 						<li *ngFor="#course of courses">
@@ -27,7 +25,7 @@ import {FavoriteComponent} from './favorite.component';
 				</div>
 			   `,
     providers: [CourseService],
-	directives: [AutoGrowDirective, FavoriteComponent]
+	directives: [AutoGrowDirective]
 })
 export class CoursesComponent {
 	title : string = 'Title for the courses page';
