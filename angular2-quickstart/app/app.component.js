@@ -1,4 +1,4 @@
-System.register(['angular2/core', './favorite.component', './like.component', './voter.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './twitter.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,45 +10,33 @@ System.register(['angular2/core', './favorite.component', './like.component', '.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, favorite_component_1, like_component_1, voter_component_1;
+    var core_1, twitter_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (favorite_component_1_1) {
-                favorite_component_1 = favorite_component_1_1;
-            },
-            function (like_component_1_1) {
-                like_component_1 = like_component_1_1;
-            },
-            function (voter_component_1_1) {
-                voter_component_1 = voter_component_1_1;
+            function (twitter_component_1_1) {
+                twitter_component_1 = twitter_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.post = {
-                        title: "My Post Title",
-                        isFavorite: true,
-                        voteCount: 10,
-                        myVote: 0,
+                    this.tweet = {
+                        title: "Meu Tweet",
+                        author: "@gsonego_br",
+                        text: "Lorem ipsum...",
+                        imageUrl: "http://lorempixel.com/100/100/people",
                         iLike: false,
-                        totalLikes: 15
+                        totalLikes: 8
                     };
                 }
-                AppComponent.prototype.onVote = function ($event) {
-                    console.log($event);
-                };
-                AppComponent.prototype.onFavoriteChange = function ($event) {
-                    console.log($event);
-                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n                <h1>My First Angular 2 App</h1>\n                <favorite [isFavorite]=\"post.isFavorite\" (change)=\"onFavoriteChange($event)\"></favorite>\n                <hr />\n                <like [iLike]=\"post.iLike\" [totalLikes]=\"post.totalLikes\"></like>\n                <hr />\n                <voter \n                    [voteCount]=\"post.voteCount\" \n                    [myVote]=\"post.myVote\"\n                    (vote)=\"onVote($event)\"\n                    >\n                </voter>\n              ",
-                        directives: [favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, voter_component_1.VoteComponent]
+                        template: "\n                <h1>My First Angular 2 App</h1>\n                <div class=\"tweet-panel\">\n                    <twitter \n                        [title]=\"tweet.title\" \n                        [text]=\"tweet.text\"\n                        [imageUrl]=\"tweet.imageUrl\"\n                        [totalLikes]=\"tweet.totalLikes\">\n                    </twitter>\n                </div>\n              ",
+                        directives: [twitter_component_1.TwitterComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
