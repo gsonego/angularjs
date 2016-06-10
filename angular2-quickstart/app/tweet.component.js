@@ -11,7 +11,7 @@ System.register(['angular2/core', './like.component'], function(exports_1, conte
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, like_component_1;
-    var TwitterComponent;
+    var TweetComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,46 +21,27 @@ System.register(['angular2/core', './like.component'], function(exports_1, conte
                 like_component_1 = like_component_1_1;
             }],
         execute: function() {
-            TwitterComponent = (function () {
-                function TwitterComponent() {
-                    this.title = '';
-                    this.text = '';
-                    this.imageUrl = '';
-                    this.isFavorite = false;
-                    this.totalLikes = 0;
+            TweetComponent = (function () {
+                function TweetComponent() {
+                    console.log(this.data);
                 }
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', String)
-                ], TwitterComponent.prototype, "title", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', String)
-                ], TwitterComponent.prototype, "text", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', String)
-                ], TwitterComponent.prototype, "imageUrl", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Boolean)
-                ], TwitterComponent.prototype, "isFavorite", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Number)
-                ], TwitterComponent.prototype, "totalLikes", void 0);
-                TwitterComponent = __decorate([
+                    __metadata('design:type', Object)
+                ], TweetComponent.prototype, "data", void 0);
+                TweetComponent = __decorate([
                     core_1.Component({
-                        selector: 'twitter',
-                        templateUrl: 'app/twitter.template.html',
+                        selector: 'tweet',
+                        templateUrl: 'app/tweet.template.html',
+                        styles: ["\n        .handle {\n            color: #ccc;\n        }\n        \n        .media {\n            margin-bottom: 20px;\n        }\n        \n        .media-object {\n            border-radius: 10px;\n        }\n    "],
                         directives: [like_component_1.LikeComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], TwitterComponent);
-                return TwitterComponent;
+                ], TweetComponent);
+                return TweetComponent;
             }());
-            exports_1("TwitterComponent", TwitterComponent);
+            exports_1("TweetComponent", TweetComponent);
         }
     }
 });
-//# sourceMappingURL=twitter.component.js.map
+//# sourceMappingURL=tweet.component.js.map
